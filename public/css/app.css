@@ -1,0 +1,300 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    font-family: 'Coda', cursive;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+    width: 660px;
+    min-height: 680px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
+}
+
+.deck .card {
+    height: 125px;
+    width: 125px;
+    background: #2e3d49;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.deck .card.open {
+    transform: rotateY(180deg);
+    transition: width 2s, height 2s, transform 0.8s;
+    background: #02b3e4;
+    cursor: default;
+}
+
+
+.deck .card.show {
+    font-size: 33px;
+}
+
+.deck .card.match {
+    transform: rotateY(180deg);
+    transition: width 2s, height 2s, transform 0.8s;
+    cursor: default;
+    background: #02ccba;
+    font-size: 33px;
+}
+.deck .card.close {
+    transform: rotateY(0deg);
+    transition: width 2s, height 2s, transform 0.8s;
+    background: #2e3d49;
+}
+
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+    text-align: left;
+    width: 550px;
+    margin-bottom: 10px;
+    font-size: 2em;
+}
+
+.score-panel .stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+.score-panel .stars li {
+    list-style: none;
+    display: inline-block;
+}
+
+.score-panel .restart {
+    float: right;
+    cursor: pointer;
+    display: inline-flex;
+}
+
+.restart:hover {
+    transform: rotate(360deg);
+    transition: transform 1s;
+
+}
+
+.score-panel .timer {
+    display: inline-flex;
+    margin-left: 5em;
+}
+
+
+
+/*
+ * Styles for the Congratulations Popup
+ */
+
+.win-popup-bg {
+    width: 100%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    background-color: #2e3d49;
+    opacity: 0.7;
+    display: none;
+}
+.win-popup {
+    position: absolute;
+    top: 27%;
+    padding: 1.5em;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    background: linear-gradient(160deg, #5cfff1 0%, #cb96f5 100%);
+    display: none;
+}
+
+#szmebuldog-image {
+    width: 40%;
+    text-align: right;
+}
+
+.congratulations {
+    width: 60%;
+    position: relative;
+}
+
+.congratulations h1 {
+    font-family: 'Coda', cursive;
+    color: #af68e9;
+    text-align: center;
+    font-size: 3em;
+    font-weight: bold;
+    margin: 0.5em;
+}
+
+.congratulations table {
+    width: 90%;
+    display: none;
+    padding-left: 2.5em;
+}
+
+.congratulations h2 {
+    margin: 0;
+    text-align: right;
+}
+
+.left h2 {
+    text-align: left;
+}
+.congratulations .restart {
+    float: left;
+    cursor: pointer;
+    display: inline-flex;
+    padding: 0.3em;
+}
+
+.congratulations .leader-board-icon {
+    float: left;
+    cursor: pointer;
+    padding: 0.3em;
+}
+
+.material-icons {
+    font-size: 36px;
+}
+
+/*
+ * Style for Name Panel
+ */
+
+.name-panel {
+    position: absolute;
+    width: 250px;
+    height: 150px;
+    top: 5%;
+    padding: 1.5em;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    background: linear-gradient(160deg, #5cfff1 0%, #cb96f5 100%);
+    display: none;
+}
+
+.name-panel input {
+    background-color: rgba(0, 0, 0, 0);
+    border: 3px solid #f1ae30;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Coda', cursive;
+}
+
+.name-panel td h1 {
+    margin: 0.3em;
+}
+
+.name-panel table {
+    text-align: center;
+    width: 80%;
+}
+
+.buttonOk {
+    
+    cursor: pointer;
+    margin-left: auto;
+    margin-right:  auto;
+    margin-top: 1.2em;
+    text-align:  center;
+
+}
+
+.buttonOk:hover {
+    color: #f1ae30;
+}
+
+/*
+ * Style for Leader Board
+ */
+
+.leader-board {
+    position: absolute;
+    width: 500px;
+    height: 800px;
+    top: 5%;
+    padding: 1.5em;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    background: linear-gradient(160deg, #5cfff1 0%, #cb96f5 100%);
+    display: none;
+}
+
+.leader-board h1 {
+    text-align: center;
+}
+
+.leader-board table {
+    width: 100%;
+    border-collapse: collapse;
+    display: none;
+}
+
+.leader-board th, .leader-board td {
+    text-align: center;
+    border: 1px solid #3dd4c8;
+}
+
+.leader-board .restart {
+    cursor: pointer;
+    display: inline-flex;
+    margin-left: 40%;
+    bottom: 20px;
+    padding: 24px;
+}
+
+
+.leader-board-text h4 {
+    margin: 0;
+    cursor: pointer;
+}
